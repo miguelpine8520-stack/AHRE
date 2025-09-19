@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Seguro</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <div class="Contenedor">
+  <div class="Contenedor">
     <h1>Bienvenida a un mundo virtual solo para ti</h1>
-    <p>Simpre espera lo inesperado</p>
-    <a href="#" class="boton redireccion">Haz click aqui</a>
-   </div> 
-    
+    <p>Siempre espera lo inesperado</p>
+
+    <form class="login-form">
+      <h2>Acceso</h2>
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" name="usuario" required>
+
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" required>
+
+      <button type="submit">Ingresar</button>
+    </form>
+
+    <a href="#" class="boton redireccion">Explora sin iniciar sesión</a>
+  </div>
+
 </body>
+
 </html>
