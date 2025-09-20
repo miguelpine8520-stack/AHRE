@@ -3,29 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acceso Seguro</title>
+  <title>Acceso</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="Contenedor">
+  <div class="contenedor">
     <h1>Bienvenida a un mundo virtual solo para ti</h1>
     <p>Siempre espera lo inesperado</p>
 
-    <form class="login-form">
-      <h2>Acceso</h2>
+    <form id="loginForm">
       <label for="usuario">Usuario:</label>
       <input type="text" id="usuario" name="usuario" required>
 
       <label for="contrasena">Contraseña:</label>
       <input type="password" id="contrasena" name="contrasena" required>
 
-      <button type="submit">Ingresar</button>
+      <button type="submit" class="boton">Ingresar</button>
     </form>
 
-    <a href="#" class="boton redireccion">Explora sin iniciar sesión</a>
+    <p id="mensaje" style="color: red;"></p>
   </div>
 
-</body>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
 
+      const usuario = document.getElementById('usuario').value;
+      const contrasena = document.getElementById('contrasena').value;
+      const mensaje = document.getElementById('mensaje');
+
+      const usuarioValido = "Pineda";
+      const contrasenaValida = "8520";
+
+      if (usuario === usuarioValido && contrasena === contrasenaValida) {
+        window.location.href = "bienvenida.html";
+      } else {
+        mensaje.textContent = "Usuario o contraseña incorrectos.";
+      }
+    });
+  </script>
+
+</body>
 </html>
