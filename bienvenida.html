@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenida</title>
+  <link rel="stylesheet" href="bienvenida.css">
+  <style>
+    .botones-acceso {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .boton.redireccion::after {
+      content: attr(data-frase);
+      display: block;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #2c3e50;
+      margin-top: 0.3rem;
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
+
+    .boton.redireccion:hover::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>Un espacio unicamente para ti...</h1>
+    <p>Podras encontrar una gran variedad de cosas espaciales que espero te agraden</p>
+
+    <div class="botones-acceso">
+      <a href="Flores.html" class="boton redireccion" data-frase="Una flor que alegre el día.">Reflexiones</a>
+      <a href="Galeria.html" class="boton redireccion" data-frase="Cada imagen es un símbolo de tu camino.">Galería simbólica</a>
+      <a href="Notas.html" class="boton redireccion" data-frase="Todo es mejor cuando lo dejamos por escrito">Oraciones</a>
+      <a href="Un futuro se aproxima.html" class="boton redireccion" data-frase="Todo inicio tiene su propósito.">Volver al inicio</a>
+    </div>
+  </div>
+
+</body>
+</html>
