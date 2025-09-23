@@ -38,54 +38,15 @@
 <h1>Galería de Flores</h1>
 
 <nav>
-  <button onclick="mostrarFlor(1)">Flor 1</button>
-  <button onclick="mostrarFlor(2)">Flor 2</button>
-  <button onclick="mostrarFlor(3)">Flor 3</button>
+ <nav>
+  <a href="flot.html" class="boton redireccion">Ver Flor Turtle</a>
+  <a href="flor1.html" class="boton redireccion">Flor 1</a>
+  <a href="flor2.html" class="boton redireccion">Flor 2</a>
+</nav>
 </nav>
 
-<div id="canvas-container"></div>
-
-<script>
-let florActual = 1;
-
-function setup() {
-  let canvas = createCanvas(600, 600);
-  canvas.parent("canvas-container");
-  angleMode(DEGREES);
-  noLoop();
-  dibujarFlor();
-}
-
-function mostrarFlor(num) {
-  florActual = num;
-  redraw();
-}
-
-function dibujarFlor() {
-  background(0);
-  translate(width / 2, height / 2);
-  rotate(45);
-  stroke("#4D4849");
-  noFill();
-
-  if (florActual === 1) {
-    for (let i = 0; i < 235; i++) {
-      arc(0, 0, (270 - i) * 2, (270 - i) * 2, 0, 90);
-      rotate(18);
-    }
-  } else if (florActual === 2) {
-    for (let i = 0; i < 180; i++) {
-      arc(0, 0, (300 - i) * 1.5, (300 - i) * 1.5, 0, 120);
-      rotate(15);
-    }
-  } else if (florActual === 3) {
-    for (let i = 0; i < 150; i++) {
-      arc(0, 0, (250 - i) * 2.5, (250 - i) * 2.5, 0, 60);
-      rotate(12);
-    }
-  }
-}
 </script>
 
 </body>
 </html>
+
