@@ -2,51 +2,71 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Galería de Flores</title>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.min.js"></script>
+  <title>Las flores nos dan aquello que en ocasiones el hombre no puede</title>
   <style>
     body {
       background-color: #111;
       color: #fff;
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 2rem;
     }
-    nav {
-      margin: 2rem 0;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #D5D8DC;
     }
-    button {
-      margin: 0.5rem;
-      padding: 0.6rem 1.2rem;
+
+    .imagen-central {
+      max-width: 600px;
+      width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .boton {
+      padding: 0.8rem 1.4rem;
       background-color: #5D6D7E;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
       transition: background-color 0.3s ease;
     }
-    button:hover {
+
+    .boton:hover {
       background-color: #707B7C;
-    }
-    #canvas-container {
-      margin-top: 2rem;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<h1>Galería de Flores</h1>
+  <h1>Siguiendo los pasos de Cristo</h1>
 
-<nav>
- <nav>
-  <a href="flot.html" class="boton redireccion">Ver Flor Turtle</a>
-  <a href="flor1.html" class="boton redireccion">Flor 1</a>
-  <a href="flor2.html" class="boton redireccion">Flor 2</a>
-</nav>
-</nav>
+  <img src="tulipan.png" alt="Flor generada en Python" class="imagen-central">
 
-</script>
+  <div class="botones">
+    <a href="flot.html" class="boton">Flor 1</a>
+    <a href="flor1.html" class="boton">Flor 2</a>
+    <a href="flor2.html" class="boton">Flor 3</a>
+    <a href="bienvenida.html" class="boton">Volver al inicio</a>
+  </div>
 
 </body>
 </html>
-
