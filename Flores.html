@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería de Flores</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.min.js"></script>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    nav {
+      margin: 2rem 0;
+    }
+    button {
+      margin: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #5D6D7E;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #707B7C;
+    }
+    #canvas-container {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Galería de Flores</h1>
+
+<nav>
+  <button onclick="mostrarFlor(1)">Flor 1</button>
+  <button onclick="mostrarFlor(2)">Flor 2</button>
+  <button onclick="mostrarFlor(3)">Flor 3</button>
+</nav>
+
+<div id="canvas-container"></div>
+
+<script>
+let florActual = 1;
+
+function setup() {
+  let canvas = createCanvas(600, 600);
+  canvas.parent("canvas-container");
+  angleMode(DEGREES);
+  noLoop();
+  dibujarFlor();
+}
+
+function mostrarFlor(num) {
+  florActual = num;
+  redraw();
+}
+
+function dibujarFlor() {
+  background(0);
+  translate(width / 2, height / 2);
+  rotate(45);
+  stroke("#4D4849");
+  noFill();
+
+  if (florActual === 1) {
+    for (let i = 0; i < 235; i++) {
+      arc(0, 0, (270 - i) * 2, (270 - i) * 2, 0, 90);
+      rotate(18);
+    }
+  } else if (florActual === 2) {
+    for (let i = 0; i < 180; i++) {
+      arc(0, 0, (300 - i) * 1.5, (300 - i) * 1.5, 0, 120);
+      rotate(15);
+    }
+  } else if (florActual === 3) {
+    for (let i = 0; i < 150; i++) {
+      arc(0, 0, (250 - i) * 2.5, (250 - i) * 2.5, 0, 60);
+      rotate(12);
+    }
+  }
+}
+</script>
+
+</body>
+</html>
