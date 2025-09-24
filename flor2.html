@@ -16,45 +16,55 @@
   <!-- Sección espiritual -->
   <section class="power-reminder">
     <h2>No olvides su gran poder</h2>
-    <div class="peticiones-list">
-      <div class="peticion">
-        <label>
-          <input type="checkbox" />
-          Petición: 
-        </label>
-        <span class="amen-text">Amén</span>
-      </div>
-      <div class="peticion">
-        <label>
-          <input type="checkbox" />
-          Petición: 
-        </label>
-        <span class="amen-text">Amén</span>
-      </div>
-      <div class="peticion">
-        <label>
-          <input type="checkbox" />
-          Petición:
-        </label>
-        <span class="amen-text">Amén</span>
-      </div>
-      <div class="peticion">
-        <label>
-          <input type="checkbox" />
-          Petición: 
-        </label>
-        <span class="amen-text">Amén</span>
-      </div>
+
+    <!-- Formulario para añadir peticiones -->
+    <form id="formulario-peticion">
+      <input type="text" id="nueva-peticion" placeholder="Escribe tu petición..." required />
+      <button type="submit">Añadir</button>
+    </form>
+
+    <!-- Lista de peticiones -->
+    <div class="peticiones-list" id="lista-peticiones"></div>
+
+    <!-- Botón Volver -->
+    <div class="volver-container">
+      <button onclick="history.back()">Volver</button>
     </div>
   </section>
 
-  <!-- Script para animación y aparición de "Amén" -->
+  <!-- Script para añadir peticiones y animar -->
   <script>
-    document.querySelectorAll('.peticion input[type="checkbox"]').forEach(checkbox => {
-      checkbox.addEventListener('change', function () {
-        const peticion = this.closest('.peticion');
-        const amen = peticion.querySelector('.amen-text');
+    const formulario = document.getElementById('formulario-peticion');
+    const lista = document.getElementById('lista-peticiones');
 
+    formulario.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const texto = document.getElementById('nueva-peticion').value.trim();
+      if (texto === '') return;
+
+      const peticion = document.createElement('div');
+      peticion.className = 'peticion';
+
+      const label = document.createElement('label');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+
+      const spanTexto = document.createElement('span');
+      spanTexto.textContent = `Petición: ${texto}`;
+
+      const amen = document.createElement('span');
+      amen.className = 'amen-text';
+      amen.textContent = 'Amén';
+
+      label.appendChild(checkbox);
+      label.appendChild(spanTexto);
+      peticion.appendChild(label);
+      peticion.appendChild(amen);
+      lista.appendChild(peticion);
+
+      document.getElementById('nueva-peticion').value = '';
+
+      checkbox.addEventListener('change', function () {
         if (this.checked) {
           peticion.classList.add('respondida');
           amen.classList.add('visible');
