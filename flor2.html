@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tulipán interactivo</title>
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    canvas {
+      background-color: white;
+      cursor: pointer;
+    }
+
+    .boton-regresar {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #C2185B;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton-regresar:hover {
+      background-color: #E91E63;
+    }
+
+    textarea {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>No olvides lo que Dios puede hacer...</h1>
+  <canvas id="tulipan" width="600" height="600"></canvas>
+
+  <textarea rows="4" cols="50" placeholder="Escribe aquí tu oración, deseo o reflexión..."></textarea>
+
+  <audio controls autoplay loop>
+    <source src="tu-cancion.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML.
+  </audio>
+
+  <button class="boton-regresar" onclick="location.href='Flores.html'">← Regresar</button>
+
+  <script>
+    const canvas = document.getElementById('tulipan');
+    const ctx = canvas.getContext('2d');
+    let angle = 0;
+
+    function drawPetal(x, y, r, rotation, color) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.bezierCurveTo(r, -r, r, r * 2, 0, r * 2.5);
+      ctx.bezierCurveTo(-r, r * 2, -r, -r, 0, 0);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawTulip() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.translate(canvas.width / 2, canvas.height / 2 + 50);
+      ctx.rotate(angle);
+
+      const petalCount = 6;
+      const radius = 40;
+      const color = '#C2185B';
+
+      for (let i = 0; i < petalCount; i++) {
+        const rotation = (Math.PI * 2 / petalCount) * i;
+        drawPetal(0, 0, radius, rotation, color);
+      }
+
+      // tallo
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, 150);
+      ctx.strokeStyle = '#388E3C';
+      ctx.lineWidth = 10;
+      ctx.stroke();
+
+      ctx.restore();
+      angle += 0.005;
+      requestAnimationFrame(drawTulip);
+    }
+
+    drawTulip();
+  </script>
+
+</body>
+</html>
