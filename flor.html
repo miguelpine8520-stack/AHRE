@@ -7,32 +7,68 @@
     body {
       background-color: black;
       margin: 0;
-      overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       color: white;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
+
     canvas {
-      display: block;
-      margin: auto;
       background-color: black;
       cursor: pointer;
     }
+
     h1 {
-      margin-top: 20px;
-      font-size: 1.5em;
+      font-size: 2em;
+      margin-bottom: 20px;
       animation: aparecer 4s ease-in-out forwards;
       opacity: 0;
     }
+
     @keyframes aparecer {
       to { opacity: 1; }
+    }
+
+    .boton-regresar {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #4D4849;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .boton-regresar:hover {
+      background-color: #6E6A6B;
+    }
+
+    .boton-regresar svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
     }
   </style>
 </head>
 <body>
 
   <h1>La flor del alma se abre en silencio</h1>
-  <canvas id="flor" width="800" height="800"></canvas>
+  <canvas id="flor" width="700" height="700"></canvas>
+
+  <button class="boton-regresar" onclick="location.href='flores.html'">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 2C10.343 2 9 3.343 9 5c0 .795.312 1.516.82 2.05L12 10l2.18-2.95A2.993 2.993 0 0 0 15 5c0-1.657-1.343-3-3-3zm0 20c1.657 0 3-1.343 3-3 0-.795-.312-1.516-.82-2.05L12 14l-2.18 2.95A2.993 2.993 0 0 0 9 19c0 1.657 1.343 3 3 3z"/>
+    </svg>
+    Regresar a flores
+  </button>
 
   <script>
     const canvas = document.getElementById('flor');
@@ -68,7 +104,7 @@
       ctx.rotate(angle);
 
       const petalCount = 12;
-      const radius = 60;
+      const radius = 100;
       const colors = colorPalettes[currentPalette];
 
       for (let i = 0; i < petalCount; i++) {
