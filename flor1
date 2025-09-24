@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Girasol interactivo</title>
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    canvas {
+      background-color: white;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      animation: aparecer 4s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes aparecer {
+      to { opacity: 1; }
+    }
+
+    .boton-regresar {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #F4C430;
+      color: #333;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .boton-regresar:hover {
+      background-color: #e0b020;
+    }
+
+    .boton-regresar svg {
+      width: 20px;
+      height: 20px;
+      fill: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>El girasol sigue la luz, como el alma busca el amor</h1>
+  <canvas id="girasol" width="700" height="700"></canvas>
+
+  <button class="boton-regresar" onclick="location.href='flores.html'">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 2C10.343 2 9 3.343 9 5c0 .795.312 1.516.82 2.05L12 10l2.18-2.95A2.993 2.993 0 0 0 15 5c0-1.657-1.343-3-3-3zm0 20c1.657 0 3-1.343 3-3 0-.795-.312-1.516-.82-2.05L12 14l-2.18 2.95A2.993 2.993 0 0 0 9 19c0 1.657 1.343 3 3 3z"/>
+    </svg>
+    Regresar a flores
+  </button>
+
+  <script>
+    const canvas = document.getElementById('girasol');
+    const ctx = canvas.getContext('2d');
+    let angle = 0;
+    let targetAngle = 0;
+
+    const colorPalettes = [
+      ['#F4C430', '#FFD700', '#FFB300', '#FFA500'],
+      ['#FFDA77', '#FFE066', '#FFC300', '#FFB347'],
+      ['#FCE38A', '#F9D976', '#FAD02C', '#F6C90E']
+    ];
+
+    let currentPalette = 0;
+
+    function drawPetal(x, y, r, rotation, color) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.quadraticCurveTo(r, r, 0, 2 * r);
+      ctx.quadraticCurveTo(-r, r, 0, 0);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawCenter(x, y, radius) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#6B4226';
+      ctx.fill();
+    }
+
+    function drawGirasol() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      ctx.rotate(angle);
+
+      const petalCount = 20;
+      const radius = 100;
+      const colors = colorPalettes[currentPalette];
+
+      for (let i = 0; i < petalCount; i++) {
+        const rotation = (Math.PI * 2 / petalCount) * i;
+        const color = colors[i % colors.length];
+        drawPetal(0, 0, radius, rotation, color);
+      }
+
+      drawCenter(0, 0, 60);
+
+      ctx.restore();
+      angle += (targetAngle - angle) * 0.05;
+      requestAnimationFrame(drawGirasol);
+    }
+
+    canvas.addEventListener('click', () => {
+      currentPalette = (currentPalette + 1) % colorPalettes.length;
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left - canvas.width / 2;
+      const y = e.clientY - rect.top - canvas.height / 2;
+      targetAngle = Math.atan2(y, x);
+    });
+
+    drawGirasol();
+  </script>
+
+</body>
+</html>
