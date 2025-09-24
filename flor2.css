@@ -76,6 +76,27 @@ body {
   transform: scale(1.2);
 }
 
+.btn-soltar {
+  background-color: #fdf6f0; /* tono cálido y suave */
+  color: #b36b6b; /* rojo tierra, evocando desapego */
+  border: 1px solid #e8cfcf;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-image: linear-gradient(to right, #fdf6f0, #fbeaea);
+}
+
+.btn-soltar:hover {
+  background-color: #fbeaea;
+  color: #8c4c4c;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
 /* Animación dorada */
 @keyframes respondidaGlow {
   0% {
