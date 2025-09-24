@@ -2,24 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Flor espiritual</title>
+  <title>Flor interactiva</title>
   <style>
     body {
       background-color: black;
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
       color: white;
       text-align: center;
-      font-family: 'Segoe UI', sans-serif;
     }
     canvas {
       display: block;
-      margin: 0 auto;
+      margin: auto;
       background-color: black;
+      cursor: pointer;
     }
     h1 {
       margin-top: 20px;
       font-size: 1.5em;
+      animation: aparecer 4s ease-in-out forwards;
       opacity: 0;
-      animation: aparecer 6s ease-in-out forwards;
     }
     @keyframes aparecer {
       to { opacity: 1; }
@@ -28,15 +31,24 @@
 </head>
 <body>
 
-  <h1>Como una flor que gira hacia lo eterno, el alma se abre en silencio</h1>
-  <canvas id="flor" width="600" height="600"></canvas>
+  <h1>La flor del alma se abre en silencio</h1>
+  <canvas id="flor" width="800" height="800"></canvas>
 
   <script>
     const canvas = document.getElementById('flor');
     const ctx = canvas.getContext('2d');
     let angle = 0;
 
-    function drawPetal(x, y, r, rotation) {
+    const colorPalettes = [
+      ['#D16BA5', '#86A8E7', '#5FFBF1', '#F9F871'],
+      ['#FF6F91', '#FF9671', '#FFC75F', '#F9F871'],
+      ['#A1C4FD', '#C2E9FB', '#B5FFFC', '#F9F871'],
+      ['#C6FFDD', '#FBD786', '#F7797D', '#F9F871']
+    ];
+
+    let currentPalette = 0;
+
+    function drawPetal(x, y, r, rotation, color) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(rotation);
@@ -44,41 +56,37 @@
       ctx.moveTo(0, 0);
       ctx.quadraticCurveTo(r, r, 0, 2 * r);
       ctx.quadraticCurveTo(-r, r, 0, 0);
-      ctx.fillStyle = '#D16BA5'; // rosa espiritual
+      ctx.fillStyle = color;
       ctx.fill();
       ctx.restore();
     }
 
-    function drawSpiralAndFlower() {
+    function drawFlower() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.save();
-      ctx.translate(300, 300);
+      ctx.translate(canvas.width / 2, canvas.height / 2);
       ctx.rotate(angle);
 
-      // Espiral
-      for (let i = 0; i < 100; i++) {
-        ctx.strokeStyle = '#4D4849';
-        ctx.beginPath();
-        ctx.arc(0, 0, 270 - i, 0, Math.PI / 2);
-        ctx.stroke();
-        ctx.rotate(Math.PI / 2);
-        ctx.beginPath();
-        ctx.arc(0, 0, 270 - i, 0, Math.PI / 2);
-        ctx.stroke();
-        ctx.rotate(Math.PI / 10);
-      }
+      const petalCount = 12;
+      const radius = 60;
+      const colors = colorPalettes[currentPalette];
 
-      // Pétalos
-      for (let i = 0; i < 12; i++) {
-        drawPetal(0, 0, 40, (Math.PI * 2 / 12) * i);
+      for (let i = 0; i < petalCount; i++) {
+        const rotation = (Math.PI * 2 / petalCount) * i;
+        const color = colors[i % colors.length];
+        drawPetal(0, 0, radius, rotation, color);
       }
 
       ctx.restore();
-      angle += 0.003;
-      requestAnimationFrame(drawSpiralAndFlower);
+      angle += 0.01;
+      requestAnimationFrame(drawFlower);
     }
 
-    drawSpiralAndFlower();
+    canvas.addEventListener('click', () => {
+      currentPalette = (currentPalette + 1) % colorPalettes.length;
+    });
+
+    drawFlower();
   </script>
 
 </body>
