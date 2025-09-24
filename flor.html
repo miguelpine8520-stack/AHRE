@@ -29,6 +29,7 @@
     }
 
     @keyframes aparecer {
+      from { opacity: 0; }
       to { opacity: 1; }
     }
 
@@ -56,16 +57,25 @@
       height: 20px;
       fill: white;
     }
+
+    textarea {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
   </style>
 </head>
 <body>
 
   <h1>La flor del alma se abre en silencio</h1>
   <canvas id="flor" width="700" height="700"></canvas>
-  
- <div style="margin-top: 30px; text-align: center;">
+
+  <div style="margin-top: 30px; text-align: center;">
     <label for="nota" style="font-size: 1.2em;">Escribe una nota para tu Flor:</label><br>
-    <textarea id="nota" rows="4" cols="50" placeholder="Aquí puedes escribir tu pensamiento, oración o deseo..." style="margin-top: 10px; padding: 10px; font-size: 1em; border-radius: 8px; border: 1px solid #ccc; resize: none;"></textarea>
+    <textarea id="nota" rows="4" cols="50" placeholder="Aquí puedes escribir tu pensamiento, oración o deseo..."></textarea>
   </div>
 
   <button class="boton-regresar" onclick="location.href='Flores.html'">
@@ -132,5 +142,3 @@
 
 </body>
 </html>
-
-
