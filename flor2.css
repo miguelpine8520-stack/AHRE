@@ -76,7 +76,7 @@ body {
   transform: scale(1.2);
 }
 
-.btn-soltar {
+.btn-eliminar {
   background-color: #fdf6f0; /* tono cálido y suave */
   color: #b36b6b; /* rojo tierra, evocando desapego */
   border: 1px solid #e8cfcf;
@@ -91,7 +91,7 @@ body {
   background-image: linear-gradient(to right, #fdf6f0, #fbeaea);
 }
 
-.btn-soltar:hover {
+.btn-eliminar:hover {
   background-color: #fbeaea;
   color: #8c4c4c;
   transform: scale(1.05);
