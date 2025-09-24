@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Espiral simbólica</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    canvas {
+      display: block;
+      margin: 0 auto;
+      background-color: black;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Una espiral que gira hacia lo eterno</h1>
+  <canvas id="espiral" width="600" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('espiral');
+    const ctx = canvas.getContext('2d');
+    let angle = 0;
+
+    function drawSpiral() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.translate(300, 300);
+      ctx.rotate(angle);
+
+      for (let i = 0; i < 235; i++) {
+        ctx.strokeStyle = '#4D4849';
+        ctx.beginPath();
+        ctx.arc(0, 0, 270 - i, 0, Math.PI / 2);
+        ctx.stroke();
+        ctx.rotate(Math.PI / 2);
+        ctx.beginPath();
+        ctx.arc(0, 0, 270 - i, 0, Math.PI / 2);
+        ctx.stroke();
+        ctx.rotate(Math.PI / 10);
+      }
+
+      ctx.restore();
+      angle += 0.002; // velocidad de rotación
+      requestAnimationFrame(drawSpiral);
+    }
+
+    drawSpiral();
+  </script>
+
+</body>
+</html>
