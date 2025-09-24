@@ -32,7 +32,7 @@
     </div>
   </section>
 
-  <!-- Script para añadir peticiones y animar -->
+  <!-- Script para añadir, marcar y eliminar peticiones -->
   <script>
     const formulario = document.getElementById('formulario-peticion');
     const lista = document.getElementById('lista-peticiones');
@@ -56,10 +56,16 @@
       amen.className = 'amen-text';
       amen.textContent = 'Amén';
 
+      const eliminarBtn = document.createElement('button');
+      eliminarBtn.textContent = 'Eliminar';
+      eliminarBtn.className = 'eliminar-btn';
+      eliminarBtn.onclick = () => peticion.remove();
+
       label.appendChild(checkbox);
       label.appendChild(spanTexto);
       peticion.appendChild(label);
       peticion.appendChild(amen);
+      peticion.appendChild(eliminarBtn);
       lista.appendChild(peticion);
 
       document.getElementById('nueva-peticion').value = '';
