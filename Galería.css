@@ -10,7 +10,7 @@ body {
 /* Fondo claro de día */
 .dia {
   background: linear-gradient(to bottom right, #fbeee6, #d6cadd);
-  background-image: url('img/fondo-textura.png');
+  background-image: url('dia.jpg');
   background-size: cover;
   color: #5a4b4b;
 }
@@ -18,7 +18,7 @@ body {
 /* Fondo oscuro de noche */
 .noche {
   background: linear-gradient(to bottom right, #1c1c2b, #3a3a52);
-  background-image: url('img/fondo-textura-noche.png'); /* crea esta textura si lo deseas */
+  background-image: url('noche.jpg'); /* crea esta textura si lo deseas */
   background-size: cover;
   color: #f0f0f0;
 }
