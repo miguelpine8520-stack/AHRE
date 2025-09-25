@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería</title>
+  <link rel="stylesheet" href="recuerdo1.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📖 Un album de recuerdos</h1>
+
+    <input type="file" id="fileInput" accept=".jpg" multiple>
+    <a href="galeria.html" class="back-button">← Regresar</a>
+
+    <div id="gallery" class="gallery"></div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const gallery = document.getElementById('gallery');
+
+    fileInput.addEventListener('change', (event) => {
+      const files = event.target.files;
+      for (let file of files) {
+        if (file.type === 'image/jpeg') {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'image-container';
+
+            const img = document.createElement('img');
+            img.src = e.target.result;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Eliminar';
+            deleteBtn.className = 'delete-button';
+            deleteBtn.onclick = () => imgContainer.remove();
+
+            imgContainer.appendChild(img);
+            imgContainer.appendChild(deleteBtn);
+            gallery.appendChild(imgContainer);
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
