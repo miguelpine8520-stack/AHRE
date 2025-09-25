@@ -16,6 +16,32 @@ h1 {
   color: #444;
 }
 
+.titulo-section {
+  margin-bottom: 2rem;
+}
+
+.titulo-section label {
+  font-size: 1rem;
+  color: #555;
+}
+
+#tituloInput {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 60%;
+  max-width: 400px;
+}
+
+#tituloPersonalizado {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+  font-style: italic;
+}
+
 input[type="file"] {
   margin-bottom: 1rem;
 }
