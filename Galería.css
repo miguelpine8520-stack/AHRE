@@ -2,26 +2,37 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #fbeee6, #d6cadd);
-  background-image: url('img/fondo-textura.png'); /* opcional */
-  background-size: cover;
   text-align: center;
-  color: #5a4b4b;
+  transition: background 1s ease;
   overflow-x: hidden;
+}
+
+/* Fondo claro de día */
+.dia {
+  background: linear-gradient(to bottom right, #fbeee6, #d6cadd);
+  background-image: url('img/fondo-textura.png');
+  background-size: cover;
+  color: #5a4b4b;
+}
+
+/* Fondo oscuro de noche */
+.noche {
+  background: linear-gradient(to bottom right, #1c1c2b, #3a3a52);
+  background-image: url('img/fondo-textura-noche.png'); /* crea esta textura si lo deseas */
+  background-size: cover;
+  color: #f0f0f0;
 }
 
 h1 {
   margin-top: 40px;
   font-size: 2.8em;
   font-weight: 600;
-  color: #7a5c5c;
   text-shadow: 1px 1px 2px #e0d0d0;
 }
 
 .subtitulo {
   font-size: 1.2em;
   margin-bottom: 30px;
-  color: #6d5c5c;
   font-style: italic;
   padding: 0 20px;
 }
@@ -37,7 +48,6 @@ h1 {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background-color: #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -46,11 +56,21 @@ h1 {
   animation: flotar 6s ease-in-out infinite;
   transition: transform 0.3s ease;
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dia .boton {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #7a5c5c;
+}
+
+.noche .boton {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
 }
 
 .pensamiento {
   font-size: 0.9em;
-  color: #7a5c5c;
   opacity: 0;
   text-align: center;
   padding: 10px;
