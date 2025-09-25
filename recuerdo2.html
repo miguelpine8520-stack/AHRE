@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería</title>
+  <link rel="stylesheet" href="recuerdo2.css">
+  <!-- Fuente poética -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>📖 Un ministerio que vivir</h1>
+
+    <div class="titulo-section">
+      <label for="tituloInput">El título que decidas llevara:</label>
+      <input type="text" id="tituloInput" placeholder="Escribe tu título aquí...">
+      <h2 id="tituloPersonalizado"></h2>
+    </div>
+
+    <input type="file" id="fileInput" accept=".jpg" multiple>
+    <a href="galeria.html" class="back-button">← Regresar</a>
+
+    <div id="gallery" class="gallery"></div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const gallery = document.getElementById('gallery');
+    const tituloInput = document.getElementById('tituloInput');
+    const tituloPersonalizado = document.getElementById('tituloPersonalizado');
+
+    // Actualiza el título personalizado en tiempo real
+    tituloInput.addEventListener('input', () => {
+      tituloPersonalizado.textContent = tituloInput.value;
+    });
+
+    // Muestra las imágenes seleccionadas
+    fileInput.addEventListener('change', (event) => {
+      const files = event.target.files;
+      for (let file of files) {
+        if (file.type === 'image/jpeg') {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'image-container';
+
+            const img = document.createElement('img');
+            img.src = e.target.result;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Eliminar';
+            deleteBtn.className = 'delete-button';
+            deleteBtn.onclick = () => imgContainer.remove();
+
+            imgContainer.appendChild(img);
+            imgContainer.appendChild(deleteBtn);
+            gallery.appendChild(imgContainer);
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
