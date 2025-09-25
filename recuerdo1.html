@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Galería</title>
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="recuerdo1.css">
+  <!-- Fuente poética -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>📖 Un album de recuerdos</h1>
+    <h1>📖 Un álbum de recuerdos</h1>
 
     <div class="titulo-section">
-      <label for="tituloInput">El título que decidas llevar:</label>
+      <label for="tituloInput">El título que decidas llevara:</label>
       <input type="text" id="tituloInput" placeholder="Escribe tu título aquí...">
       <h2 id="tituloPersonalizado"></h2>
     </div>
@@ -27,10 +29,12 @@
     const tituloInput = document.getElementById('tituloInput');
     const tituloPersonalizado = document.getElementById('tituloPersonalizado');
 
+    // Actualiza el título personalizado en tiempo real
     tituloInput.addEventListener('input', () => {
       tituloPersonalizado.textContent = tituloInput.value;
     });
 
+    // Muestra las imágenes seleccionadas
     fileInput.addEventListener('change', (event) => {
       const files = event.target.files;
       for (let file of files) {
