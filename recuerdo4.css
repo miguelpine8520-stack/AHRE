@@ -1,0 +1,147 @@
+/* Fuente espiritual */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+
+/* Fondo tipo papel antiguo */
+body {
+  background-image: url('paisaje.jpg'); /* Asegúrate de tener esta imagen en tu carpeta */
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #4a3f35;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 2rem;
+  background-color: #ffffffdd;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* Título principal */
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #6b4f3b;
+}
+
+/* Sección de título personalizado */
+.titulo-section {
+  margin-bottom: 2rem;
+}
+
+.titulo-section label {
+  font-size: 1rem;
+  color: #555;
+}
+
+#tituloInput {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 400px;
+  background-color: #fefaf7;
+  transition: border-color 0.3s;
+}
+
+#tituloInput:focus {
+  border-color: #a88c7d;
+  outline: none;
+}
+
+#tituloPersonalizado {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+  font-style: italic;
+  text-shadow: 0 0 8px #d8c3b3;
+}
+
+/* Botón de regreso */
+.back-button {
+  display: inline-block;
+  background-color: #d8c3b3;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #bfa28f;
+}
+
+/* Galería */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Imagen y animación */
+.image-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.image-container:hover {
+  transform: rotateY(5deg);
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* Botón eliminar */
+.delete-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #f4e2e2;
+  color: #a94442;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #e0bcbc;
+}
+
+.delete-button::before {
+  content: "✖ ";
+}
