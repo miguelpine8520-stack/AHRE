@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Galería</title>
-  <link rel="stylesheet" href="recuerdo1.css">
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
   <div class="container">
     <h1>📖 Un album de recuerdos</h1>
+
+    <div class="titulo-section">
+      <label for="tituloInput">El título que decidas llevar:</label>
+      <input type="text" id="tituloInput" placeholder="Escribe tu título aquí...">
+      <h2 id="tituloPersonalizado"></h2>
+    </div>
 
     <input type="file" id="fileInput" accept=".jpg" multiple>
     <a href="galeria.html" class="back-button">← Regresar</a>
@@ -18,6 +24,12 @@
   <script>
     const fileInput = document.getElementById('fileInput');
     const gallery = document.getElementById('gallery');
+    const tituloInput = document.getElementById('tituloInput');
+    const tituloPersonalizado = document.getElementById('tituloPersonalizado');
+
+    tituloInput.addEventListener('input', () => {
+      tituloPersonalizado.textContent = tituloInput.value;
+    });
 
     fileInput.addEventListener('change', (event) => {
       const files = event.target.files;
