@@ -26,5 +26,16 @@
       <span class="pensamiento">"Cada imagen es una oración detenida."</span>
     </a>
   </div>
+
+  <script>
+    const hora = new Date().getHours();
+    const cuerpo = document.body;
+
+    if (hora >= 6 && hora < 18) {
+      cuerpo.classList.add("dia");
+    } else {
+      cuerpo.classList.add("noche");
+    }
+  </script>
 </body>
-</html>  
+</html>
