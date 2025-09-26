@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mural de Notas</title>
+  <link rel="stylesheet" href="Notas.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌼 Mural de escritura</h1>
+
+    <div class="input-section">
+      <textarea id="noteInput" placeholder="Escribe tu nota aquí..."></textarea>
+      <button id="addNoteButton">Añadir nota</button>
+    </div>
+
+    <div id="mural" class="mural"></div>
+
+    <a href="bienvenida.html" class="back-button">← Regresar</a>
+  </div>
+
+  <script>
+    const noteInput = document.getElementById('noteInput');
+    const addNoteButton = document.getElementById('addNoteButton');
+    const mural = document.getElementById('mural');
+
+    addNoteButton.addEventListener('click', () => {
+      const text = noteInput.value.trim();
+      if (text !== "") {
+        const noteCard = document.createElement('div');
+        noteCard.className = 'note-card';
+        noteCard.innerHTML = `<p>${text}</p><button class="delete-note">✖</button>`;
+        mural.appendChild(noteCard);
+        noteInput.value = "";
+      }
+    });
+
+    mural.addEventListener('click', (e) => {
+      if (e.target.classList.contains('delete-note')) {
+        e.target.parentElement.remove();
+      }
+    });
+  </script>
+</body>
+</html>
