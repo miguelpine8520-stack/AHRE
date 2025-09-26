@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Un paso al Futuro</title>
+  <link rel="stylesheet" href="Un futuro se aproxima.css">
+</head>
+<body>
+
+  <h1>Un paso al Futuro</h1>
+
+  <section>
+    <h2>Metas</h2>
+    <ul id="metas-list"></ul>
+    <input type="text" id="meta-input" placeholder="Escribe una meta">
+    <button onclick="addItem('meta-input', 'metas-list')">Agregar</button>
+  </section>
+
+  <section>
+    <h2>Propósitos</h2>
+    <ul id="propositos-list"></ul>
+    <input type="text" id="proposito-input" placeholder="Escribe un propósito">
+    <button onclick="addItem('proposito-input', 'propositos-list')">Agregar</button>
+  </section>
+
+  <section>
+    <h2>Sueños</h2>
+    <ul id="suenos-list"></ul>
+    <input type="text" id="sueno-input" placeholder="Escribe un sueño">
+    <button onclick="addItem('sueno-input', 'suenos-list')">Agregar</button>
+  </section>
+
+  <section>
+    <h2>Recorriendo el futuro</h2>
+    <input type="file" accept="image/*" multiple>
+    <p>Puedes subir fotos que representen tu camino hacia el futuro 🌟</p>
+  </section>
+
+  <a href="bienvenida.html" class="back-button">Regresar a Bienvenida</a>
+
+  <script>
+    function addItem(inputId, listId) {
+      const input = document.getElementById(inputId);
+      const list = document.getElementById(listId);
+      const text = input.value.trim();
+      if (text !== "") {
+        const li = document.createElement("li");
+        li.innerHTML = `${text} <button onclick="markCompleted(this)">✔</button>`;
+        list.appendChild(li);
+        input.value = "";
+      }
+    }
+
+    function markCompleted(button) {
+      const li = button.parentElement;
+      li.innerHTML = `<span class="completed">Cumplido: ${li.textContent.trim()}</span>`;
+    }
+  </script>
+
+</body>
+</html>
