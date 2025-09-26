@@ -3,7 +3,7 @@
 
 /* Fondo tipo papel antiguo */
 body {
-  background-image: url('futuro.jpg'); /* Asegúrate de tener esta imagen en tu carpeta */
+  background-image: url('futuro.png'); /* Asegúrate de tener esta imagen en tu carpeta */
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Segoe UI', sans-serif;
