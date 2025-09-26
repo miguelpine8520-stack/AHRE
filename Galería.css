@@ -89,10 +89,10 @@ h1 {
 /* Posiciones dispersas */
 #boton1 { top: 20%; left: 10%; animation-delay: 0s; }
 #boton2 { top: 10%; right: 15%; animation-delay: 1s; }
-#boton3 { top: 40%; left: 40%; animation-delay: 2s; }
+#boton3 { top: 10%; left: 40%; animation-delay: 2s; }
 #boton4 { bottom: 20%; left: 20%; animation-delay: 3s; }
 #boton5 { bottom: 10%; right: 25%; animation-delay: 4s; }
-#boton6 { bottom: 30%; right: 50%; animation-delay: 4s; }
+#boton6 { bottom: 40%; right: 45%; animation-delay: 4s; }
 
 
 /* Animación de flotación */
