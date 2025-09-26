@@ -15,7 +15,7 @@ section {
   border: 1px solid #ddd;
   padding: 15px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.1); /* fondo translúcido */
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 h2 {
@@ -67,4 +67,18 @@ button:hover {
   color: white;
   text-decoration: none;
   width: fit-content;
+}
+
+#galeria {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.foto {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
