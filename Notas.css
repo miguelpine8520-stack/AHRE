@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+
+body {
+  background-image: url('notas.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #4a3f35;
+  text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 2rem;
+  background-color: #ffffffdd;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #6b4f3b;
+}
+
+.input-section {
+  margin-bottom: 2rem;
+}
+
+textarea {
+  width: 80%;
+  height: 100px;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fefaf7;
+  resize: vertical;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: border-color 0.3s;
+}
+
+textarea:focus {
+  border-color: #a88c7d;
+  outline: none;
+}
+
+button#addNoteButton {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #d8c3b3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button#addNoteButton:hover {
+  background-color: #bfa28f;
+}
+
+.mural {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.note-card {
+  position: relative;
+  width: 220px;
+  min-height: 120px;
+  padding: 1rem;
+  background: #fffaf5 url('flores.png') no-repeat bottom right;
+  background-size: 80px;
+  border: 2px solid #e8dcd0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  font-style: italic;
+  transition: transform 0.3s;
+}
+
+.note-card:hover {
+  transform: scale(1.03);
+}
+
+.note-card p {
+  margin: 0;
+  color: #5a4b3f;
+}
+
+.delete-note {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #f4e2e2;
+  color: #a94442;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 2rem;
+  background-color: #d8c3b3;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #bfa28f;
+}
