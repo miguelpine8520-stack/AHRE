@@ -73,7 +73,12 @@ button:hover {
   margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
+}
+
+.foto-contenedor {
+  position: relative;
+  display: inline-block;
 }
 
 .foto {
@@ -81,4 +86,21 @@ button:hover {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.eliminar-foto {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 3px 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.eliminar-foto:hover {
+  background-color: #cc0000;
 }
