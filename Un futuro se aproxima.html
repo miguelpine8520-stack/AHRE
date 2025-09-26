@@ -32,7 +32,8 @@
 
   <section>
     <h2>Recorriendo el futuro</h2>
-    <input type="file" accept="image/*" multiple>
+    <input type="file" accept="image/*" multiple onchange="mostrarFotos(event)">
+    <div id="galeria"></div>
     <p>Puedes subir fotos que representen tu camino hacia el futuro 🌟</p>
   </section>
 
@@ -45,7 +46,11 @@
       const text = input.value.trim();
       if (text !== "") {
         const li = document.createElement("li");
-        li.innerHTML = `${text} <button onclick="markCompleted(this)">✔</button>`;
+        li.innerHTML = `
+          ${text}
+          <button onclick="markCompleted(this)">✔</button>
+          <button onclick="deleteItem(this)">🗑️</button>
+        `;
         list.appendChild(li);
         input.value = "";
       }
@@ -54,6 +59,27 @@
     function markCompleted(button) {
       const li = button.parentElement;
       li.innerHTML = `<span class="completed">Cumplido: ${li.textContent.trim()}</span>`;
+    }
+
+    function deleteItem(button) {
+      const li = button.parentElement;
+      li.remove();
+    }
+
+    function mostrarFotos(event) {
+      const galeria = document.getElementById("galeria");
+      galeria.innerHTML = ""; // limpiar antes de mostrar nuevas
+      const archivos = event.target.files;
+      for (let i = 0; i < archivos.length; i++) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.createElement("img");
+          img.src = e.target.result;
+          img.className = "foto";
+          galeria.appendChild(img);
+        };
+        reader.readAsDataURL(archivos[i]);
+      }
     }
   </script>
 
