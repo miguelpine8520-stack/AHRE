@@ -92,6 +92,8 @@ h1 {
 #boton3 { top: 40%; left: 40%; animation-delay: 2s; }
 #boton4 { bottom: 20%; left: 20%; animation-delay: 3s; }
 #boton5 { bottom: 10%; right: 25%; animation-delay: 4s; }
+#boton6 { bottom: 30%; right: 50%; animation-delay: 4s; }
+
 
 /* Animación de flotación */
 @keyframes flotar {
