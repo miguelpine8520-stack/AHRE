@@ -26,6 +26,12 @@
   </div>
 
   <script>
+    const usuarios = {
+      "PINEDA": "2510",
+      "ANA": "2709",
+      
+    };
+
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
@@ -33,10 +39,7 @@
       const contrasena = document.getElementById('contrasena').value;
       const mensaje = document.getElementById('mensaje');
 
-      const usuarioValido = "Pineda";
-      const contrasenaValida = "8520";
-
-      if (usuario === usuarioValido && contrasena === contrasenaValida) {
+      if (usuarios[usuario] && usuarios[usuario] === contrasena) {
         window.location.href = "bienvenida.html";
       } else {
         mensaje.textContent = "Usuario o contraseña incorrectos.";
@@ -46,4 +49,3 @@
 
 </body>
 </html>
-
