@@ -139,3 +139,12 @@ form#loginForm input {
   }
 }
 
+@media (max-width: 600px) {
+  body {
+    background: url('playa.jpg') center center / cover no-repeat;
+  }
+}
+
+
+
+
